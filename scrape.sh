@@ -41,12 +41,11 @@ while [[ ! -z "$#" ]] ; do
 		*--footer|--footer*) scrape | get footer | cut_html ; exit ;;
 		*--help|*--usage|--help*|--usage*|*)
 			tabs 2
-			pattern=$(for i in {1..$1} ; do echo "\t%s\t %s\n" ; done)
-			printf "$pattern" \
+			printf '\t%s\t %s\n' \
 			'usage:' 'bash scrape <url> <--flag>' \
 		       	'or:' 'bash scrape <--flag> <url>' \
 			'----------------------------------'
-			printf "\t$pattern" \
+			printf '\t%s\t %s\n' \
 			'--raw:' 'scrape url without any intervention' \
 			'--raw-head:' 'scrape raw head output' \
 			'--head:' 'scrape and trim head' \
